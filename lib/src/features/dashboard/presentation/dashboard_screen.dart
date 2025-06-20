@@ -1,11 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:quizzo/categories.dart';
-import 'package:quizzo/quiz_main_tile.dart';
+import 'package:quizzo/src/features/dashboard/widgets/categories.dart';
+import 'package:quizzo/src/features/dashboard/widgets/quiz_main_tile.dart';
+import 'package:quizzo/src/features/profile/presentation/profile_screen.dart';
+import 'package:quizzo/src/features/progress/presentation/progress_screen.dart';
 
 class Dashboard extends StatelessWidget {
-  Dashboard({super.key});
-    
-  final List<Map<String, String>> musicQuizzes = [
+  const Dashboard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "QUIZZO!",
+              style: TextStyle(
+                fontSize: 96,
+                fontFamily: 'Anaheim',
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Categories(),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: musicQuizzes.length,
+              itemBuilder: (context, index) {
+                final quiz = musicQuizzes[index];
+                return QuizMainTile(
+                  title: quiz['title']!,
+                  subtitle: quiz['subtitle']!,
+                  imagePath: quiz['image']!,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+   
+final List<Map<String, String>> musicQuizzes = [
   {
     'title': "The 80’s",
     'subtitle': "Test your 80’s music knowledge",
@@ -22,37 +61,3 @@ class Dashboard extends StatelessWidget {
     'image': 'assets/img/cassett_2.png',
   },
 ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(241, 237, 231, 1),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("QUIZZO!", style: TextStyle(fontSize: 96, fontFamily: 'Anaheim', fontWeight: FontWeight.w600),),
-                Categories(),
-                Center(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: musicQuizzes.length,
-                    itemBuilder: (context, index) {
-                      final quiz = musicQuizzes[index];
-                      return QuizMainTile(
-                        title: quiz['title']!,
-                        subtitle: quiz['subtitle']!,
-                        imagePath: quiz['image']!,
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-      ),
-      );
-  }
-}
