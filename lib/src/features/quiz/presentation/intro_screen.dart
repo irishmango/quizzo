@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizzo/src/features/quiz/presentation/quiz_screen.dart';
+import 'package:quizzo/src/features/quiz/presentation/quiz_widget.dart';
 
 class IntroScreen extends StatelessWidget {
   final String title;
