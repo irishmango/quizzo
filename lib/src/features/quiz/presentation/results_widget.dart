@@ -9,6 +9,8 @@ class ResultsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double percScore = score / total * 100;
+
     return Expanded(
       child: Center(
         child: Column(
@@ -53,7 +55,7 @@ class ResultsWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 64),
-                  Center(child: StarWidget()),
+                  Center(child: StarWidget(percScore: percScore)),
                 ],
               ),
             ),
@@ -65,12 +67,24 @@ class ResultsWidget extends StatelessWidget {
 }
 
 class StarWidget extends StatelessWidget {
-  const StarWidget({super.key});
+  final double percScore;
+
+  const StarWidget({required this.percScore, super.key});
 
   @override
   Widget build(BuildContext context) {
+    Icon getStar(bool filled) => Icon(
+          filled ? Icons.star : Icons.star_border,
+          color: filled ? Colors.amber : Colors.black,
+          size: 64,
+        );
+
+    bool oneStar = percScore >= 33;
+    bool twoStars = percScore >= 66;
+    bool threeStars = percScore >= 90;
+
     return SizedBox(
-      width: 200, 
+      width: 200,
       height: 100,
       child: Stack(
         alignment: Alignment.center,
@@ -78,13 +92,13 @@ class StarWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.star, color: Colors.amber, size: 64),
-              Icon(Icons.star_border, color: Colors.black, size: 64),
+              getStar(oneStar),
+              getStar(twoStars),
             ],
           ),
           Positioned(
             top: -5,
-            child: Icon(Icons.star, color: Colors.amber, size: 64),
+            child: getStar(threeStars),
           ),
         ],
       ),

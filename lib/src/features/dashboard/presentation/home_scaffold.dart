@@ -35,9 +35,9 @@ class _HomeScaffoldState extends State<HomeScaffold> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.equalizer), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.person, size: 32,), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home, size: 32,), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.equalizer, size: 32,), label: ''),
         ],
       ),
     );
