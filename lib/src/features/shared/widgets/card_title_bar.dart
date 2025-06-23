@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzo/theme/styled_text/styled_text.dart';
 
 class CardTitleBar extends StatelessWidget {
   final String title;
@@ -29,15 +30,7 @@ class CardTitleBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const SizedBox(width: 32),
-          Text(
-            title,
-            style: TextStyle(
-              fontFamily: 'Anaheim',
-              fontSize: 36,
-              fontWeight: FontWeight.w600,
-              color: textColor,
-            ),
-          ),
+          StyledHeadlineMediumText(title),
           iconVisible
               ? IconButton(
                   icon: const Icon(Icons.settings, color: Colors.white, size: 42),

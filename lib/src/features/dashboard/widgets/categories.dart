@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:quizzo/theme/theme.dart';
 
-class Categories extends StatelessWidget {
-  const Categories({
-    super.key,
-  });
+class Categories extends StatefulWidget {
+  final void Function(int index) onCategorySelected;
 
+  const Categories({super.key, required this.onCategorySelected});
+  @override
+  State<Categories> createState() => _CategoriesState();
+}
+
+class _CategoriesState extends State<Categories> {
   final List<String> categories = const [
+  'Shuffle',
   'Geography',
   'Music',
   'Flutter',
   'Politics',
   'Math',
   ];
+
+  int? selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +31,19 @@ class Categories extends StatelessWidget {
         children: categories.map((category) {
           return GestureDetector(
             onTap: () {
-              print('Tapped on $category');
+              setState(() {
+                selectedIndex = categories.indexOf(category);
+              });
+              widget.onCategorySelected(selectedIndex!);
             },
             child: Container(
               height: 36,
               width: 130,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Color(0xFFE4DDCE),
+                color: selectedIndex == categories.indexOf(category)
+                ? AppColors.appTeal
+                : AppColors.darkBeige,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: Color(0xFF202020),
@@ -40,9 +53,13 @@ class Categories extends StatelessWidget {
               child: Text(
                 category,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: selectedIndex == categories.indexOf(category)
+                  ? Colors.white
+                  : AppColors.appBlack,
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: selectedIndex == categories.indexOf(category)
+                  ? FontWeight.w700
+                  : FontWeight.w500,
                 ),
               ),
             ),

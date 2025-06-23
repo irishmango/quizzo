@@ -9,11 +9,6 @@ class MockDatabaseRepository implements DatabaseRepository {
   final List<User> users = [];
   final List<Quiz> quizResults = [];
   final List<Category> categories = [
-    Category(
-      id: 'music',
-      title: 'Music',
-      quizzes: musicQuizzes.map((q) => Quiz.fromJson(q)).toList(),
-    ),
   ];
 
   @override

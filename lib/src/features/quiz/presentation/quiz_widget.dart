@@ -159,7 +159,9 @@ class _QuizWidgetState extends State<QuizWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Colors.green,
+                                  color: isAnswered 
+                                  ? AppColors.appGreen
+                                  : AppColors.appTeal,
                                   border: Border.all(width: 2),
                                 ),
                                 child: const Center(

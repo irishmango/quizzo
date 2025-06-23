@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzo/src/features/shared/widgets/card_title_bar.dart';
+import 'package:quizzo/theme/styled_text/styled_text.dart';
+import 'package:quizzo/theme/theme.dart';
 
 class SettingsScreen extends StatelessWidget {
   final VoidCallback onBack;
@@ -14,9 +16,9 @@ class SettingsScreen extends StatelessWidget {
         width: 400,
         height: 740,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(224, 214, 197, 1),
+          color: AppColors.darkBeige,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: const Color(0xFF202020), width: 2),
+          border: Border.all(color: AppColors.appBlack, width: 2),
         ),
         child: Column(
           children: [
@@ -35,22 +37,22 @@ class SettingsScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Email:", style: TextStyle(fontFamily: 'Anaheim', fontSize: 24, fontWeight: FontWeight.w600)),
-                      Text("shokri@quizzo.com", style: TextStyle(fontFamily: 'Anaheim', fontSize: 24, fontWeight: FontWeight.w600)),
+                      StyledBodyMediumText("Email:"),
+                      StyledBodyMediumText("shokri@quizzo.com"),
                     ],
                   ),
                   Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Password:", style: TextStyle(fontFamily: 'Anaheim', fontSize: 24, fontWeight: FontWeight.w600)),
-                      Text("xxxxxxxx", style: TextStyle(fontFamily: 'Anaheim', fontSize: 24, fontWeight: FontWeight.w600)),
+                      StyledBodyMediumText("Password:"),
+                      StyledBodyMediumText("xxxxxx"),
                     ],
                   ),                 
                   Divider(),
-                  Text("Report a Problem", style: TextStyle(fontFamily: 'Anaheim', fontSize: 24, fontWeight: FontWeight.w600)),
+                  StyledBodyMediumText("Report a Problem"),
                   Divider(),
-                  Text("Terms of Service", style: TextStyle(fontFamily: 'Anaheim', fontSize: 24, fontWeight: FontWeight.w600)),
+                  StyledBodyMediumText("Terms of Service"),
                   Divider(),
                   SizedBox(height: 200),
                   // Custom 'Log Out' button
@@ -60,42 +62,41 @@ class SettingsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Container(
-                          height: 57,
-                          width: 277,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "Log Out",
-                              style: TextStyle(
-                                fontFamily: 'Anaheim',
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
-                              ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            height: 57,
+                            width: 277,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Center(
+                              child: StyledBodyMediumText("Log Out"),
                             ),
                           ),
                         ),
                         const SizedBox(height: 12),
                         // Custom 'Delete Profile' button
-                        Container(
-                          height: 57,
-                          width: 277,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(width: 2),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "Delete Profile",
-                              style: TextStyle(
-                                fontFamily: 'Anaheim',
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            height: 57,
+                            width: 277,
+                            decoration: BoxDecoration(
+                              color: AppColors.appRed,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(width: 2),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "Delete Profile",
+                                style: TextStyle(
+                                  fontFamily: 'Anaheim',
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),

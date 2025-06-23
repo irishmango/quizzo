@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzo/src/features/quiz/presentation/intro_screen.dart';
+import 'package:quizzo/theme/styled_text/styled_text.dart';
+import 'package:quizzo/theme/theme.dart';
 
 class QuizMainTile extends StatelessWidget {
   final String title;
@@ -29,36 +31,37 @@ class QuizMainTile extends StatelessWidget {
           width: 400,
           height: 366,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(imagePath),
-              fit: BoxFit.cover,
-            ),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Color(0xFF202020),
-              width: 1.5,
+              color: const Color(0xFF202020),
+              width: 2,
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Stack(
               children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                Positioned.fill(
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 14,
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white.withAlpha(120), // overlay
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      StyledTitleSmallText(title),
+                      const SizedBox(height: 4),
+                      StyledBodySmallText(subtitle),
+                    ],
                   ),
                 ),
               ],

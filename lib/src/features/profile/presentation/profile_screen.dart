@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:quizzo/src/features/profile/presentation/settings_screen.dart';
 import 'package:quizzo/src/features/shared/widgets/card_title_bar.dart';
+import 'package:quizzo/theme/styled_text/styled_text.dart';
+import 'package:quizzo/theme/theme.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -62,7 +64,7 @@ class ProfileCard extends StatelessWidget {
       width: 400,
       height: 740,
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(224, 214, 197, 1),
+        color: AppColors.darkBeige,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: const Color(0xFF202020), width: 2),
       ),
@@ -70,7 +72,7 @@ class ProfileCard extends StatelessWidget {
         children: [
           CardTitleBar(
             title: "Profile",
-            backgroundColor: const Color.fromRGBO(64, 71, 240, 1),
+            backgroundColor: AppColors.appBlue,
             iconVisible: true,
             onSettingsPressed: onSettings,
           ),
@@ -78,7 +80,7 @@ class ProfileCard extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.black, width: 2),
+              border: Border.all(color: AppColors.appBlack, width: 2),
             ),
             child: const CircleAvatar(
               radius: 80,
@@ -94,32 +96,32 @@ class ProfileCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Name:", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
-                      Text("Shokri", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
+                      StyledBodyMediumText("Name:"),
+                      StyledBodyMediumText("Shokri"),
                     ],
                   ),
                   SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Joined:", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
-                      Text("06.06.2025", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
+                      StyledBodyMediumText("Joined:"),
+                      StyledBodyMediumText("06.06.2025"),
                     ],
                   ),
                   SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("XP Points:", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
-                      Text("1800", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
+                      StyledBodyMediumText("XP Points:"),
+                      StyledBodyMediumText("1850"),
                     ],
                   ),
                   SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Achievements Unlocked:", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
-                      Text("8", style: TextStyle(fontSize: 24, fontFamily: 'Anaheim', fontWeight: FontWeight.w600)),
+                      StyledBodyMediumText("Achievements Unlocked:"),
+                      StyledBodyMediumText("8"),
                     ],
                   ),
                 ],
