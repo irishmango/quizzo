@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:quizzo/src/data/database_repository.dart';
 import 'package:quizzo/src/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:quizzo/src/features/profile/presentation/profile_screen.dart';
 import 'package:quizzo/src/features/progress/presentation/progress_screen.dart' hide ProfileScreen;
 
 class HomeScaffold extends StatefulWidget {
-  const HomeScaffold({super.key});
+  final DatabaseRepository db;
+  const HomeScaffold({super.key, required this.db});
 
   @override
   State<HomeScaffold> createState() => _HomeScaffoldState();
@@ -13,11 +15,17 @@ class HomeScaffold extends StatefulWidget {
 class _HomeScaffoldState extends State<HomeScaffold> {
   int _selectedIndex = 1;
 
-  final List<Widget> _screens = [
+  late final List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
     ProfileScreen(),
-    Dashboard(),
+    Dashboard(db: widget.db),
     ProgressScreen(),
   ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {

@@ -10,26 +10,29 @@ class ProgressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.only(top: 25),
         child: Align(
           alignment: Alignment.topCenter,
           child: Container(
-            width: 400,
-            height: 740,
+            width: 350,
+            height: 950,
             decoration: BoxDecoration(
               color: AppColors.darkBeige,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: AppColors.appBlack, width: 2),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CardTitleBar(title: "Progress", backgroundColor: AppColors.appGreen,),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 12,
                     children: [
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Quizzes Completed:", style: TextStyle(
@@ -42,12 +45,13 @@ class ProgressScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 24,
                                 fontFamily: 'Anaheim',
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                         ],
                       ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Highest Daily Streak:",
@@ -61,12 +65,13 @@ class ProgressScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: 'Anaheim',
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ],
                       ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Highest Correct Streak:",
@@ -80,12 +85,13 @@ class ProgressScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: 'Anaheim',
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ],
                       ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Your favorite Category:",
@@ -99,12 +105,13 @@ class ProgressScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: 'Anaheim',
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ],
                       ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("XP Points Collected:",
@@ -118,7 +125,7 @@ class ProgressScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: 'Anaheim',
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ],

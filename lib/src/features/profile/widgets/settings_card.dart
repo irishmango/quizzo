@@ -3,18 +3,18 @@ import 'package:quizzo/src/features/shared/widgets/card_title_bar.dart';
 import 'package:quizzo/theme/styled_text/styled_text.dart';
 import 'package:quizzo/theme/theme.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsCard extends StatelessWidget {
   final VoidCallback onBack;
 
-  const SettingsScreen({super.key, required this.onBack});
+  const SettingsCard({super.key, required this.onBack});
 
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       child: Container(
-        width: 400,
-        height: 740,
+        width: 350,
+        height: 600,
         decoration: BoxDecoration(
           color: AppColors.darkBeige,
           borderRadius: BorderRadius.circular(8),
@@ -29,44 +29,40 @@ class SettingsScreen extends StatelessWidget {
               onSettingsPressed: onBack,
             ),
             const SizedBox(height: 54),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      StyledBodyMediumText("Email:"),
-                      StyledBodyMediumText("shokri@quizzo.com"),
-                    ],
-                  ),
-                  Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      StyledBodyMediumText("Password:"),
-                      StyledBodyMediumText("xxxxxx"),
-                    ],
-                  ),                 
-                  Divider(),
-                  StyledBodyMediumText("Report a Problem"),
-                  Divider(),
-                  StyledBodyMediumText("Terms of Service"),
-                  Divider(),
-                  SizedBox(height: 200),
-                  // Custom 'Log Out' button
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        StyledBodyMediumText("Email:"),
+                        StyledBodyMediumText("shokri@quizzo.com"),
+                      ],
+                    ),
+                    const Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        StyledBodyMediumText("Password:"),
+                        StyledBodyMediumText("xxxxxx"),
+                      ],
+                    ),
+                    const Divider(),
+                    StyledBodyMediumText("Report a Problem"),
+                    const Divider(),
+                    StyledBodyMediumText("Terms of Service"),
+                    const Divider(),
+                    const Spacer(), // pushes the logout/delete/version section to the bottom
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         GestureDetector(
                           onTap: () {},
                           child: Container(
                             height: 57,
-                            width: 277,
                             decoration: BoxDecoration(
                               border: Border.all(width: 2),
                               borderRadius: BorderRadius.circular(8),
@@ -77,12 +73,10 @@ class SettingsScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        // Custom 'Delete Profile' button
                         GestureDetector(
                           onTap: () {},
                           child: Container(
                             height: 57,
-                            width: 277,
                             decoration: BoxDecoration(
                               color: AppColors.appRed,
                               borderRadius: BorderRadius.circular(8),
@@ -112,13 +106,11 @@ class SettingsScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(height: 16,)
                       ],
                     ),
-                  ),
-                  
-
-                  
-                ],
+                  ],
+                ),
               ),
             ),
           ],

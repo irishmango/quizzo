@@ -23,7 +23,7 @@ class CardTitleBar extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(6)),
         border: const Border(bottom: BorderSide(color: Colors.black, width: 2)),
       ),
       child: Row(

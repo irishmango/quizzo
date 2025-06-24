@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:quizzo/src/data/database_repository.dart';
+import 'package:quizzo/src/data/quiz.dart';
 import 'package:quizzo/src/features/quiz/presentation/quiz_screen.dart';
-import 'package:quizzo/src/features/quiz/presentation/quiz_widget.dart';
 
 class IntroScreen extends StatelessWidget {
-  final String title;
-  final String description1;
-  final String description2;
-  final String description3;
+  final DatabaseRepository db;
+  final Quiz quiz;
 
-
-  const IntroScreen({super.key, this.title = "The 80’s", this.description1 = "You think you know your 80’s music?", this.description2 = "You know who the lead singer of Thin Lizzy was?", this.description3 = "You know who sang ‘Livin on a prayer’?"});
+  const IntroScreen({super.key, required this.db, required this.quiz});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +15,8 @@ class IntroScreen extends StatelessWidget {
       backgroundColor: Color.fromRGBO(241, 237, 231, 1),
       body: Center(
         child: Container(
-          width: 400,
-          height: 700,
+          width: 350,
+          height: 600,
           decoration: BoxDecoration(
             color: Color.fromRGBO(252, 191, 3, 1),
             borderRadius: BorderRadius.circular(12),
@@ -48,47 +46,45 @@ class IntroScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10),
                 Center(
                   child: Column(
                     children: [
                       Text(
-                        title,
+                        quiz.title,
                         style: TextStyle(
                           fontFamily: 'Anaheim',
                           fontSize: 64,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(height: 100,),
+                      SizedBox(height: 100),
                       Column(
-                        spacing: 12,
                         children: [
                           Text(
-                            description1,
+                            quiz.description1,
                             style: TextStyle(fontSize: 16, fontFamily: 'Anaheim', fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            description2,
+                            quiz.description2,
                             style: TextStyle(fontSize: 16, fontFamily: 'Anaheim', fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            description3,
+                            quiz.description3,
                             style: TextStyle(fontSize: 16, fontFamily: 'Anaheim', fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
-                        ],
-                      ),
+                    ],
+                  ),
                 ),
-                
                 const Spacer(),
                 Center(
                   child: GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => QuizScreen(),
+                          builder: (context) => QuizScreen(quiz: quiz),
                         ),
                       );
                     },
@@ -98,18 +94,26 @@ class IntroScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(64, 96, 240, 1),
                         borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 2,
-                          ),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                        ),
                       ),
-                      child: Center(child: 
-                      Text("Let's Rock!", 
-                      style: TextStyle(fontFamily: 'Anaheim', fontSize: 18, fontWeight: FontWeight.w700, color: Color.fromRGBO(245, 245, 245, 1)),)),
+                      child: Center(
+                        child: Text(
+                          "Let's Quizzo!",
+                          style: TextStyle(
+                            fontFamily: 'Anaheim',
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: Color.fromRGBO(245, 245, 245, 1),
+                          ),
+                        ),
+                      ),
                     ),
-                  )
+                  ),
                 ),
-                SizedBox(height: 40,)
+                SizedBox(height: 40),
               ],
             ),
           ),

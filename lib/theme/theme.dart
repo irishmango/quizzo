@@ -9,7 +9,7 @@ class AppColors {
   static Color appYellow = const Color.fromRGBO(252, 191, 3, 1);
   static Color darkBeige = const Color.fromRGBO(228, 221, 206, 1);
   static Color lightBeige = const Color.fromRGBO(241, 237, 231, 1);
-  static Color appBlack = const Color.fromRGBO(29, 29, 29, 1);
+  static Color appBlack = Color.fromRGBO(29, 29, 29, 1);
 }
 
 ThemeData primaryTheme = ThemeData(
@@ -26,6 +26,10 @@ ThemeData primaryTheme = ThemeData(
     backgroundColor: AppColors.darkBeige,
     foregroundColor: AppColors.appBlack,
     surfaceTintColor: Colors.transparent
+  ),
+
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: AppColors.darkBeige
   ),
 
 

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quizzo/src/features/dashboard/presentation/dashboard_screen.dart';
-import 'package:quizzo/src/features/dashboard/presentation/home_scaffold.dart';
-import 'package:quizzo/src/features/quiz/presentation/intro_screen.dart';
-import 'package:quizzo/theme/theme.dart';
+import 'package:quizzo/app.dart';
+import 'package:quizzo/src/data/database_repository.dart';
+import 'package:quizzo/src/data/mock_database_repository.dart';
+
 
 void main() {
-  runApp(MaterialApp(
-    theme: primaryTheme,
-    home: HomeScaffold(),
-  ));
+  final DatabaseRepository db = MockDatabaseRepository();
+  runApp(App(db: db));
 }
