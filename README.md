@@ -1,16 +1,34 @@
-# quizzo
+# Quizzo – Gamified Quiz App
 
-A new Flutter project.
+Quizzo is a stylish, mobile-first Flutter app that delivers an engaging quiz experience with gamification elements like achievements, XP tracking, and streaks. Built with a clean modular structure and dynamic Firestore-driven data.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Take quizzes from multiple categories  
+- Unlock achievements based on skill, progress, and fun challenges  
+- Track stats: XP, correct streaks, daily streaks, category breakdowns  
+- Playful retro-styled UI with custom typography and themes  
+- Structured Firestore integration via `DatabaseRepository`  
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter** & **Dart**  
+- **Firestore** (read-only mode currently)  
+- **Provider** for state separation  
+- **Modular widgets** with `StatelessWidget`/`StatefulWidget` patterns  
+- **Anaheim Google font** and a fully custom color theme  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## 🧪 Highlights & Learning
+
+- Created a reusable `CardTitleBar` component across screens  
+- Integrated Firestore safely with an abstraction (`DatabaseRepository`)  
+- Implemented custom logic for streaks, achievements, and quiz completion  
+- Built pixel-perfect UI to spec using `Container`, `Column`, and `Theme` customization  
+
+## 🚧 Future Work
+
+- 🔐 User authentication  
+- ⬆️ Save stats back to Firestore  
+- 🧠 Quiz difficulty modes  
+- 🎁 Daily rewards and XP multipliers  
