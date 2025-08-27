@@ -39,7 +39,7 @@ class SettingsCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         StyledBodyMediumText("Email:"),
-                        StyledBodyMediumText("shokri@quizzo.com"),
+                        StyledBodyMediumText("guest@quizzo.com"),
                       ],
                     ),
                     const Divider(),
@@ -55,7 +55,7 @@ class SettingsCard extends StatelessWidget {
                     const Divider(),
                     StyledBodyMediumText("Terms of Service"),
                     const Divider(),
-                    const Spacer(), // pushes the logout/delete/version section to the bottom
+                    const Spacer(), 
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
