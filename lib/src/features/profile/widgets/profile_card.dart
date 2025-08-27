@@ -41,7 +41,7 @@ class ProfileCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         StyledBodyMediumText("Name:"),
-                        StyledBodyMediumText("Gues"),
+                        StyledBodyMediumText("Guest"),
                       ],
                     ),
                     SizedBox(height: 8),
